@@ -83,7 +83,7 @@ class CLI(object):
     def _unlock_keychain_prompt(self):
         while self.keychain.locked:
             try:
-                self.keychain.unlock(self.getpass("Master password: "))
+                self.keychain.unlock(self.getpass("Master password:").encode("utf-8"))
             except KeyboardInterrupt:
                 self.stdout.write("\n")
                 sys.exit(0)
